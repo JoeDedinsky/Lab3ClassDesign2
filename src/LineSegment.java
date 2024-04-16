@@ -69,4 +69,16 @@ public class LineSegment {
         LineSegment that = (LineSegment) other;
         return this.start == that.start && this.end == that.end;
     }
+
+    public double getDistance() {
+        if (start == null || end == null) {
+            throw new NullPointerException();
+        }
+
+        double dx = this.start.getX() - this.end.getX();
+        double dy = this.start.getY() - this.end.getY();
+        double distance = Math.sqrt(dx*dx + dy*dy);
+
+        return distance;
+    }
 }
