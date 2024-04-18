@@ -59,13 +59,12 @@ public class LineSegment {
 
     @Override
     public boolean equals(Object other) {
-        if (!(other instanceof Point2D)) {
+        if (other == null || !(other instanceof LineSegment)) {
             return false;
         }
         if (this == other) {
             return true;
         }
-
         LineSegment that = (LineSegment) other;
         return this.start == that.start && this.end == that.end;
     }
