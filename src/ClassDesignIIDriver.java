@@ -19,11 +19,11 @@ public class ClassDesignIIDriver {
     
     public static void main(String[] args) {
         // uncomment the desired Driver or Demo below and run this code to test your progress
-        shapeDriver();
+        // shapeDriver();
         lineSegmentDriver();
-        immutableFractionDriver();
-        customMathDriver();
-        passByReferenceDemo();
+        // immutableFractionDriver();
+        // customMathDriver();
+        // passByReferenceDemo();
     }
 
     private static void shapeDriver() {
@@ -76,7 +76,7 @@ public class ClassDesignIIDriver {
         System.out.println("a.num:" + a.numerator);
         System.out.println("b.denom:" + b.denominator);
 
-        // which of the following code is correct to change the fraction a?
+        // Question which of the following code is correct to change the fraction a?
         // Answer: a = a.add(b)
         // a.add(b);
         a = a.add(b);
@@ -136,27 +136,27 @@ public class ClassDesignIIDriver {
     }
     
     public static void mutate(int z) {
-        //does it matter that I called my input data "z" here?
-        /* Yes and no. No because you can name the parameter
+        // Question: does it matter that I called my input data "z" here?
+        /* Answer: Yes and no. No because you can name the parameter
         whatever you like, and yes because you have to make sure
         to use this name within the scope of this method to make
         any changes.
         */
         z = -1000;
         // this.foo = -1000;
-        // why does the line above cause compiler errors?
+        // Question: why does the line above cause compiler errors?
         // Answer: the mutate method is static.
     }
     
     public static void mutate(Dimension c) {  
         c.height = -1000;
         c.width = -1000;
-        //if I didn't hand this function a copy of b from main,
+        // Question: if I didn't hand this function a copy of b from main,
         // but rather a reference to the object that is known in main as b, what happens here?
         // Answer: not sure what is being asked here. I assume it changes
         // the height and width of b.
 
-        //if I make a change to c, are my changes reflected back
+        // Question: if I make a change to c, are my changes reflected back
         // in the code that called this function?  In other words, did this change b of main?
         // Answer: Yes it does change b.
     }
