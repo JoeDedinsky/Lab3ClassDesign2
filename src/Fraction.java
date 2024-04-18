@@ -1,9 +1,7 @@
-import java.lang.Math;
 
 public class Fraction {
     public final int numerator;
     public final int denominator;
-
 
     public Fraction(int numerator, int denominator) {
 
@@ -30,30 +28,18 @@ public class Fraction {
             b = a % b;
             a = temp;
         }
-        System.out.println(a);
         return a;
     }
 
     public Fraction add(Fraction other) {
-        int temp = 0;
-        if (other.denominator > this.denominator) {
-            temp = other.denominator;
-        }
-        if (this.denominator > other.denominator) {
-            temp = this.denominator;
-        }
-        int newNum1 = this.numerator*temp;
-        int newDen1 = this.denominator*temp;
-        int newNum2 = other.numerator*temp;
-        int newDen2 = other.denominator*temp;
+
+        int newDenominator = this.denominator*other.denominator;
+        int newNumerator = this.numerator*other.denominator +
+                           other.numerator*this.denominator;
+
         int gcd = gcd(this.denominator, other.denominator);
 
-        int reduce1 = newNum1/gcd;
-        int reduce2 = newDen1/gcd;
-        int reduce3 = newNum2/gcd;
-        int reduce4 = newDen2/gcd;
-        return new Fraction(newNum1, newDen1);
-
+        return new Fraction(newNumerator/gcd, newDenominator/gcd);
     }
 
     @Override

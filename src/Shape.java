@@ -6,9 +6,7 @@ public class Shape {
     private int y;
     private Color color;
 
-    public Shape() {
-
-    }
+    public Shape() {    }
 
     public Shape(int x, int y, Color color) {
         this.x = x;
@@ -30,7 +28,7 @@ public class Shape {
 
     public int getArea() { return -1; }
 
-    public void draw(Graphics g) { }
+    public void draw(Graphics g) {    }
 
     @Override
     public String toString() {

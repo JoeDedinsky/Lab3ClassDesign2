@@ -18,12 +18,12 @@ public class ClassDesignIIDriver {
     
     
     public static void main(String[] args) {
-        //uncomment the desired Driver or Demo below and run this code to test your progress
-        //shapeDriver();
+        // uncomment the desired Driver or Demo below and run this code to test your progress
+        shapeDriver();
         lineSegmentDriver();
         immutableFractionDriver();
-        //customMathDriver();
-        //passByReferenceDemo();
+        customMathDriver();
+        passByReferenceDemo();
     }
 
     private static void shapeDriver() {
@@ -63,7 +63,7 @@ public class ClassDesignIIDriver {
     
     
     public static void immutableFractionDriver() {
-        System.out.println("Uncomment the code to use the immutableFractionDriver");
+
         Fraction a = new Fraction(1, 2);
         Fraction b = new Fraction(3, 4);
         Fraction c = new Fraction(b);
@@ -77,10 +77,11 @@ public class ClassDesignIIDriver {
         System.out.println("b.denom:" + b.denominator);
 
         // which of the following code is correct to change the fraction a?
-        a.add(b);
+        // Answer: a = a.add(b)
+        // a.add(b);
         a = a.add(b);
         
-        System.out.println("a: " +a);
+        System.out.println("a: " + a);
         System.out.println("b: " + b);
         System.out.println("c: " + c);
         
@@ -91,18 +92,34 @@ public class ClassDesignIIDriver {
     }
 
     private static void customMathDriver() {
-        System.out.println("uncomment the code to use the customMathDriver");
-        /*
-        double a = CustomMath.PI;
-        double b = CustomMath.E;
+
+        double a = Math2.PI;
+        double b = Math2.E;
         double c = a + b;
         
-        System.out.println("The larger of the two is " + CustomMath.max(10, 20));
-        System.out.println("And the larger of the two is " + CustomMath.max(10.34, 10.31));
-        System.out.println("2^8 is " + CustomMath.pow(2, 8));
-        */
+        System.out.println("The larger of the two is " + Math2.max(10, 20));
+        System.out.println("And the larger of the two is " + Math2.max(10.34, 10.31));
+        System.out.println("2^8 is " + Math2.pow(2, 8));
+        System.out.println("Pi is roughly equal to "+ Math2.PI);
+        System.out.println("E is roughly equal to "+ Math2.E);
+        System.out.println("Pi + E is " + c);
+
     }
-    
+
+    /* Answers to Questions.
+
+    3a. Passing a primitive sends a copy to the method, so
+        when the method is executed nothing changes about
+        the original variable. Passing an object sends the
+        memory address associated with the object, so if
+        the method changes fields or attributes related to
+        the object then the original will also be changed,
+        but the memory address is not changed, as the address
+        is still passed-by-value.
+    3b. No, the scope does not change.
+    3c. yes, see 3a.
+
+     */
     public static void passByReferenceDemo() {
         int a = 3;                      // a primitive variable
         Dimension b = new Dimension();  // a reference variable
@@ -118,17 +135,29 @@ public class ClassDesignIIDriver {
         
     }
     
-    public static void mutate(int z) {  //does it matter that I called my input data "z" here?
-        z = -1000;  // if z is only a copy, this won't affect the variable a's value in main
-        
-        //this.foo = -1000;
+    public static void mutate(int z) {
+        //does it matter that I called my input data "z" here?
+        /* Yes and no. No because you can name the parameter
+        whatever you like, and yes because you have to make sure
+        to use this name within the scope of this method to make
+        any changes.
+        */
+        z = -1000;
+        // this.foo = -1000;
         // why does the line above cause compiler errors?
+        // Answer: the mutate method is static.
     }
     
     public static void mutate(Dimension c) {  
         c.height = -1000;
         c.width = -1000;
-        //if I didn't hand this function a copy of b from main, but rather a reference to the object that is known in main as b, what happens here?
-        //if I make a change to c, are my changes reflected back in the code that called this function?  In other words, did this change b of main?
+        //if I didn't hand this function a copy of b from main,
+        // but rather a reference to the object that is known in main as b, what happens here?
+        // Answer: not sure what is being asked here. I assume it changes
+        // the height and width of b.
+
+        //if I make a change to c, are my changes reflected back
+        // in the code that called this function?  In other words, did this change b of main?
+        // Answer: Yes it does change b.
     }
 }

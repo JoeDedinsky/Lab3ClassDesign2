@@ -6,8 +6,7 @@ public class Point2D {
         this.x = x;
         this.y = y;
     }
-
-    /*
+    /* Answer:
     We don't need getters or setters since "other"
     already has these methods
      */
@@ -50,6 +49,4 @@ public class Point2D {
         Point2D that = (Point2D) other;
         return this.x == that.x && this.y == that.y;
     }
-
-
 }
